@@ -125,6 +125,23 @@ public class StudentDao {
 	}
 	
 	
+	public int count() {
+	int count=0;
+		try {
+			String sql = "select count(*) from student";
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			ResultSet rs=preparedStatement.executeQuery();
+		
+		      rs.next();
+		     count = rs.getInt(1);
+		      System.out.println(count);
+		      return count;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 	
 		
 	
